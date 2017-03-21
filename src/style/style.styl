@@ -1,0 +1,944 @@
+@import './helpers.styl'
+
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+@import '../../node_modules/font-awesome/css/font-awesome.min.css'
+
+@import '../../node_modules/react-redux-toastr/lib/css/react-redux-toastr.min.css'
+@import '../../node_modules/rc-collapse/assets/index.css'
+@import '../../node_modules/react-data-grid/dist/react-data-grid.css'
+@import '../../node_modules/react-grid-layout/css/styles.css'
+@import '../../node_modules/react-select/dist/react-select.css'
+
+div
+  outline: none !important
+
+html, body, #root, .app
+  height 100%
+  font-family: Roboto, 'Helvetica Neue', Arial, sans-serif
+
+a
+  text-decoration: none !important
+
+.app
+  overflow: hidden
+
+//  LOADING ANIMATION
+.spinlogo
+  animation: rotation 1s infinite ease-in-out, bounce 1s infinite ease-in-out
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg)
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    margin-top: 100px
+
+  }
+  40% {
+    margin-top: 50px
+  }
+}
+
+// SIDEBAR
+
+.sidebar-main
+  width 240px
+  height 100%
+  background #2D323E
+  color #E3F2FD
+  overflow: hidden
+
+.sidebar-main__brand
+  margin-top 0
+  padding-left 15px
+  padding-right 5px
+  cursor: pointer
+  height: 64px
+  background: #373C47
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12)
+
+.sidebar-main__brand-h1
+  margin: 0
+  height: 100%
+  display: flex
+  font-size: 27px
+  opacity: 0.7
+  align-items: center
+
+.sidebar-main__text-color
+  color: #E3F2FD !important
+  background: #343b4a
+
+.sidebar-main__text-color button svg
+  color: #E3F2FD !important
+
+.sidebar-main__toggle-slider-btn
+  float right !important
+  padding 0 12px !important
+
+.brand
+  font-size 0.9em
+  line-height: 1
+  padding: 0
+  margin: 0
+  color: #E3F2FD
+
+.brand:focus, .brand:hover, .brand:active, .brand:visited
+  color: #E3F2FD
+  text-decoration: none
+
+.sidebar-main__link
+  color: #E3F2FD !important
+
+.sidebar-main__link:hover
+  background: rgba(51, 122, 183, 0.5) !important
+
+.sidebar-main__link-wrap
+  padding-left: 15px !important
+
+.sidebar-main__wrap-mobile-brand
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.sidebar-main__scroll-bar
+  height: calc(100% - 154px)
+  width: 100%
+
+.sidebar-main__link-active
+  background: #337ab7 !important
+
+.sidebar-main__link-active .sidebar-main__link
+  //background: rgba(0, 0, 0, 0.1) !important
+
+.sidebar-main__text-color + div .sidebar-main__text-color:hover
+  background: rgba(51, 122, 183, 0.5) !important
+ 
+// USER-INFO
+.user-info
+  height: 90px
+  padding: 15px
+  position: relative
+  background-color: rgba(0, 0, 0, 0.09)
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12)
+
+.user-info__avatar
+  background-image url(../images/user.jpg)
+  border: 1px solid #fff
+  height: 45px
+  width: 45px
+  display: inline-block
+  background-size cover
+
+.user-info__info
+  display: inline-block
+  font-size: 1.1em
+  width: calc(100% - 45px)
+  float: right
+  padding: 0 15px
+
+// MENU-MAIN
+
+.menu-main
+  color: #E3F2FD !important
+
+// FOOTER
+
+.footer-main
+  height 50px
+  border 2px solid #aaa
+  position absolute
+  bottom 0
+  right 0
+  left 0
+
+// PROFILE
+
+.history-active-profile
+  padding-right 30px
+  padding-top 30px
+
+// HEADER
+
+.right-bar
+  float left
+  width: 25%
+  padding-top 30px
+
+.header-main
+  background: #2196F3 !important
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12) !important
+
+// AUTH
+
+.auth__paper
+  height: 100%
+  width: 100%
+  padding: 50px 0
+  text-align: center
+  display: inline-block
+
+.auth__row
+  min-height: 100vh
+  display: flex
+  align-items center
+
+.auth__btn
+  margin: 30px 0
+
+.auth__box-nav
+  width: 256px
+  margin: auto
+
+.auth__box-nav a
+  color: #2196F3
+
+.auth__brand
+  margin: 0 auto
+  cursor: pointer
+
+.auth__error-messages
+  background: #E57373
+  padding: 10px
+  text-align: center
+  border-radius: 5px
+  border: 1px solid #F44336
+  color: #E3F2FD
+  font-size: 1.2em
+  width: 256px
+  margin: 10px auto
+
+// NOT FOUND
+.not-found__paper
+  height: 100%
+  width: 100%
+  padding: 50px 0
+  text-align: center
+  display: inline-block
+
+.not-found__row
+  min-height: 100vh
+  display: flex
+  align-items center
+
+.not-found__btn
+  margin: 30px 0
+
+.not-found__box-nav
+  width: 256px
+  margin: auto
+
+.not-found__brand
+  margin: 0 auto
+  cursor: pointer
+
+// PROFILE
+
+body
+  font-family sans-serif
+  margin-right 0
+  margin-left 0
+  background-color #ededed
+
+.profile-top-info
+  width auto
+  height 250px
+  @media screen and (max-width: 340px)
+    height 200px
+
+.profile-top-background
+  width auto
+  height 50%
+  max-height 150px
+  //background-image url(../images/toronto.jpg)
+  background-size cover
+  background #ddd
+  @media screen and (max-width: 340px)
+    height 40%
+
+.profile-top-user-info
+  display flex
+  width auto
+  height 100px
+  padding-left 250px
+  background-color white
+  .data
+    font-family sans-serif
+    font-size 16px
+    height 50%
+    margin-top 20px
+    padding-right 15px
+    @media screen and (max-width: 340px)
+      padding-right 5px
+  .right
+    padding-left 15px
+    border-left .5px solid silver
+    @media screen and (max-width: 640px)
+      padding-left 15px
+      border-left .5px solid silver
+    @media screen and (max-width: 340px)
+      padding-left 10px
+  .title
+    font-size 22px
+    font-weight 600
+    color #262626
+    @media screen and (max-width: 640px)
+      font-size 1em
+      height 50%
+      padding-right 15px
+    @media screen and (max-width: 340px)
+      font-size .9em
+      height 50%
+      padding-right 15px
+  .text
+    color #888
+    @media screen and (max-width: 640px)
+      font-size 1em
+      color #888
+    @media screen and (max-width: 340px)
+      font-size .8em
+      color #888
+  @media screen and (max-width: 640px)
+    width auto
+    height auto
+    padding-bottom 10px
+    padding-left 0
+    background-color white
+    justify-content center
+  @media screen and (max-width: 340px)
+    margin-top 0
+    padding-left 15px
+
+.profile-top-avatar
+  position absolute
+  z-index 5
+  width 150px
+  height 150px
+  margin-top 50px
+  margin-left 50px
+  border solid 5px white
+  border-radius 100px
+  background-image url(../images/user.jpg)
+  background-color rgb(0, 0, 139)
+  background-size 100%
+  @media screen and (max-width: 640px)
+    z-index 5
+    left 23%
+    width 100px
+    height 100px
+    margin-top 10px
+    border solid 3px white
+  @media screen and (max-width: 340px)
+    left 19%
+    width 65px
+    height 65px
+    margin-top 5px
+
+.profile-top-user-name
+  font-size 2em
+  font-weight 200
+  position absolute
+  z-index 1
+  margin-top -48px
+  margin-left 170px
+  padding 1px
+  padding-right 80px
+  padding-left 40px
+  color white
+  border-radius 5px
+  background-color rgba(33,150,243,0.6)
+  @media screen and (max-width: 640px)
+    font-size 1.3em
+    position static
+    display block
+    width auto
+    height auto
+    margin-top 0
+    margin-left 0
+    padding 2px
+    text-align center
+    border-radius 0
+
+.history-active
+  height 100%
+  padding 10px 0 0 0
+  .day-active
+    display flex
+    @media screen and (max-width: 640px)
+      display flex
+      flex-direction column
+  .calendar-pic
+    z-index 2
+    width 40px
+    height 40px
+    background-image url(https://lh3.googleusercontent.com/NSZTx37PfEOlV-GyQj2fr99p4JMMrg5fwmrp8lIjUyM_SgcZ0PcHX7X7GdI-2Fqj3O0k=w300)
+    background-size 100%
+    @media screen and (max-width: 340px)
+      width 30px
+      height 30px
+  .day-title
+    display flex
+    flex-direction row
+    align-items flex-start
+  .calendar-date
+    display flex
+    flex-direction column
+    margin-left 5px
+    justify-content center
+  .day
+    font-size 1.1em
+    font-weight 200
+    min-width 110px
+    color #4a4a4a
+    @media screen and (max-width: 640px)
+      font-size 1em
+      color #4a4a4a
+    @media screen and (max-width: 340px)
+      font-size .9em
+  .date
+    font-size .8em
+    font-weight 200
+    color #716f6f
+  .active-title
+    width 100%
+    margin-top 0
+    margin-bottom 0
+    @media screen and (max-width: 640px)
+      margin-left 5px
+  li
+    display flex
+    width 100%
+    min-height 40px
+    margin-top 1px
+    border-radius 3px
+    background-color #eee
+    align-items center
+    position relative
+    .time
+      display flex
+      padding-right 10px
+      padding-left 10px
+      border-radius 3px 0 0 3px
+      background-color #d9d6d6
+      align-items center
+      position absolute
+      height 100%
+      @media screen and (max-width: 340px)
+        font-size .9em
+        min-height 30px
+        padding-right 5px
+        padding-left 5px
+    .title
+      padding-left 60px
+    @media screen and (max-width: 340px)
+      font-size .9em
+      min-height 30px
+  @media screen and (max-width: 640px)
+    margin-top -20px
+    padding 0 25px 0 10px
+  @media screen and (max-width: 340px)
+    margin-top -30px
+
+.day-active
+  padding: 25px 20px
+
+// TABLES
+
+.tables
+  .pagination
+    display none
+
+//  WORKAREA
+.workarea-main
+  height: calc(100% - 104px)
+
+.workarea-main__scroll-bar
+  height: 100%
+
+.workarea-main__scroll-content
+  padding-bottom 55px
+
+// my-panel
+.my-panel
+  width: 100%
+
+.my-panel__header
+  margin-top: 0
+  padding: 10px
+  color: #757575
+  background: #EEEEEE
+  font-size: 1.5em
+
+.my-panel__content
+  padding: 15px
+
+// DASHBOARD
+.dashboard
+  padding: 10px 10px 0 10px !important
+  width: 100%
+
+.dashboard__grid
+  margin: 0 -15px
+
+// TOASTS
+.toasts
+  padding: 15px 0
+
+.toasts__button
+  margin: 5px 10px 5px 0
+
+.toasts__button_white span
+  color: #fff !important
+
+.toastr.error
+  background-color: #F44336 !important
+
+.toastr.success
+  background-color: #4CAF50 !important
+
+.toastr.info
+  background-color: #2196F3 !important
+
+.toastr.warning
+  background-color: #FF9800 !important
+
+.redux-toastr.top-right
+  top: 85px !important
+
+// table-page
+.table-page
+  padding: 0
+
+// table-com
+.table-com
+  background: #fff
+  position: relative
+
+.table-com__header
+  padding: 5px 15px 5px 15px
+  overflow: hidden
+
+.table-com__search-wrap
+  padding: 14px 0 0 15px;
+  overflow: hidden;
+
+.table-com__search-input-col
+  padding-top: 13px;
+
+.table-com__searchBy-input
+  margin-top: -10px
+
+.table-com__search
+  padding-right:  50px
+
+.table-com__search-input
+  height: 48px
+  font-size: 1.5em
+  border: 0
+  &:focus
+  &:hover
+  &:active
+    border: 0
+    outline: 0
+
+.table-com__search-icon
+  color: rgba(0, 0, 0, .54) !important
+
+.table-com__footer
+  padding: 3px 0
+  overflow: hidden
+  position: relative
+
+.table-com__searchBy-input-col
+  padding-left: 48px
+
+.table-com__search-input
+  float: left
+  z-index: 999
+  width: calc(100% - 48px) !important
+
+.table-com__search-btn-close
+  transition: none!important
+  position: absolute!important
+  right: 15px
+  top: 15px
+  @media screen and (max-width: 991px)
+    right: 25px
+    top: 80px
+
+.table-com__search-text-btn-close
+  position: absolute!important
+  right: -25px
+  top: 15px
+  z-index: 1
+
+.table-com__search-icon-search
+  margin: 12px
+  float: left
+
+.table-com__tools
+  float: right
+
+.table-com__title
+  float: left
+
+.table-com__footer-tools
+  color: rgba(0, 0, 0, .54) !important
+  float: right
+  display: flex
+  align-items: center
+
+.table-com__select
+  color: rgba(0, 0, 0, .54) !important
+  width: inherit !important
+  font-size: 14px !important
+  div
+    color: rgba(0, 0, 0, .54) !important
+  .table-com__select-item
+    color: rgba(0, 0, 0, .54) !important
+
+.table-com__loader
+  height: 3px !important
+  position: absolute !important
+  right: 0 !important
+  left: 0 !important
+  z-index: 199
+
+.table-com__body
+  position: relative
+
+.table-com__layer
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0margin-top -20px
+  z-index: 99
+  background: rgba(255, 255, 255, 0.5)
+
+.table-com__sort-btn
+  display: flex
+  cursor: pointer
+  align-items: center
+  color: rgba(0, 0, 0, 0.870588)
+  &:hover
+  &:focus
+  &:active
+  &:visited
+    color: rgba(0, 0, 0, 0.870588)
+
+.blue500-color-font
+  color: #2196F3 !important
+
+.blue50-color-font
+  color: #E3F2FD !important
+
+.header__language-bar_active
+  background: rgba(0, 0, 0, 0.15) !important
+
+.table-com__error-wrap
+  z-index: 9999
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  display: flex
+  align-items: center
+  justify-content: center
+
+.table-com__error-box
+  width: 50%
+  overflow: hidden
+
+.table-com__error-content
+  display: flex
+  align-items: center
+  justify-content: center
+
+.error-panel
+  width: 100%
+
+.error-panel__header
+  padding-left: 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  font-size: 1.2em
+  font-weight: bold
+  background: #EEEEEE
+  color: #616161
+  margin: 0
+
+.error-panel__content
+  text-align: center
+  padding: 30px
+  color: #F44336
+  font-size: 1.1em
+
+.error-panel__btn
+  float: right
+  padding: 5px !important
+
+.table-com__footer-remove
+  float: left
+  padding: 0 15px
+  display: flex
+  justify-content: center
+  align-items: center
+
+input:-webkit-autofill
+  -webkit-box-shadow: 0 0 0 50px white inset
+
+input:-webkit-autofill:focus
+  -webkit-box-shadow: 0 0 0 50px white inset
+
+.rc-collapse-header
+.rc-collapse-item
+.rc-collapse
+  -webkit-border-radius: 0 !important
+  -moz-border-radius: 0 !important
+  border-radius: 0 !important
+
+.table-com__empty-rows-view
+  display: flex
+  justify-content: center
+  font-size: 1.3em
+  padding: 30px
+
+.react-grid-Cell.selected
+  border-radius: 0 !important
+  border-width: 1px !important
+
+.settings-general__tabs
+  background-color: #2196f3 !important
+
+.profilePage
+  padding: 20px 20px 0 20px
+
+.wrapPage
+  padding: 20px 20px 0 20px
+
+.react-grid-item
+  background: red
+
+.h-full > div
+  height: 100%
+
+.user-info__tool-btn
+  position: absolute !important
+  top: 3px
+  right: 0
+
+.user-tool__menu-item-wrap > div > div
+  padding: 0 !important
+
+.contact-form-wrap
+  margin-bottom: 15px !important
+
+.contact-info-wrap
+  margin-bottom: 15px !important
+
+.contact-form
+  min-height: 450px
+  padding: 15px
+  overflow: hidden
+
+.contact-info
+  min-height: 450px
+  padding: 15px
+
+.contact-info-content
+  line-height: 1.3em
+
+.page-wrap
+  min-height: calc(100vh - 104px)
+  margin-bottom: -40px
+
+.page-wrap:after
+  content: ''
+  display: block
+
+.site-footer
+  height: 40px
+  width: 100%
+
+.site-footer
+  background: #337AB7
+  justify-content: space-between
+  display: flex
+  align-items: center
+  padding: 0 30px
+  color: #fff
+
+.go-top-btn
+  button
+    background: #2196F3 !important
+
+.go-top-btn
+  position: fixed
+  right: 30px
+  bottom: 70px
+  z-index: 300
+
+.header-navigation-bar
+  background: #337ab7
+  width: 100%
+  height: 40px
+  color: #fff
+  padding: 0 20px
+  display: flex
+  align-items: center
+  position: relative
+
+.header-navigation-bar__help-btn
+  position: absolute
+  right: 10px
+
+.tableActions_inline-block
+  display: inline-block
+
+.overview-top-info
+  width auto
+  height 230px
+  @media screen and (max-width: 340px)
+    height 200px
+
+.overview-top-background
+  width auto
+  height 45%
+  max-height 250px
+  //background-image url(../images/toronto.jpg)
+  background-size cover
+  background #ddd
+  @media screen and (max-width: 340px)
+    height 40%
+
+//.overview-top-user-info
+//  display flex
+//  width auto
+//  height 100px
+//  padding-left 250px
+//  background-color white
+//  .data
+//    font-family sans-serif
+//    font-size 16px
+//    height 50%
+//    //width: 50%
+//    display: inline-block
+//    margin-top 20px
+//    padding-right 15px
+//    @media screen and (max-width: 340px)
+//      padding-right 5px
+//  .right
+//    padding-left 15px
+//    border-left .5px solid silver
+//    @media screen and (max-width: 640px)
+//      padding-left 15px
+//      border-left .5px solid silver
+//    @media screen and (max-width: 340px)
+//      padding-left 10px
+//  .title
+//    font-size 18px
+//    font-weight 600
+//    color #262626
+//    @media screen and (max-width: 768px)
+//      font-size 16px
+//    @media screen and (max-width: 640px)
+//      font-size 1em
+//      height 50%
+//      padding-right 15px
+//    @media screen and (max-width: 340px)
+//      font-size .9em
+//      height 50%
+//      padding-right 15px
+//  .text
+//    color #888
+//    @media screen and (max-width: 640px)
+//      font-size 1em
+//      color #888
+//    @media screen and (max-width: 340px)
+//      font-size .8em
+//      color #888
+//  @media screen and (max-width: 640px)
+//    width auto
+//    height auto
+//    padding-bottom 10px
+//    padding-left 0
+//    background-color white
+//    justify-content center
+//  @media screen and (max-width: 340px)
+//    margin-top 0
+//    padding-left 15px
+
+.overview-top-avatar
+  position absolute
+  z-index 5
+  width 150px
+  height 150px
+  margin-top 30px
+  margin-left 50px
+  border solid 5px white
+  border-radius 100px
+  background-image url(../images/organization.png)
+  background-color rgb(256, 256, 256)
+  background-size cover
+  background-position: center
+  background-repeat: no-repeat
+  @media screen and (max-width: 640px)
+    z-index 5
+    left 23%
+    width 100px
+    height 100px
+    margin-top 10px
+    border solid 3px white
+  @media screen and (max-width: 340px)
+    left 19%
+    width 65px
+    height 65px
+    margin-top 5px
+
+.overview-top-user-name
+  font-size 2em
+  font-weight 200
+  position absolute
+  z-index 1
+  margin-top -48px
+  margin-left 170px
+  padding 1px
+  padding-right 80px
+  padding-left 40px
+  color white
+  border-radius 5px
+  background-color rgba(33,150,243,0.6)
+  @media screen and (max-width: 640px)
+    font-size 1.3em
+    position static
+    display block
+    width auto
+    height auto
+    margin-top 0
+    margin-left 0
+    padding 2px
+    text-align center
+    border-radius 0
+
+.wrap-hospital-dialog-add
+  height: 250px
+
+.d-none
+  display: none!important
+
+.checkbox-style
+  color: #ddd!important
+  padding-top: 15px
+
+//.wrap-template-input
+//  padding: 10px 0
