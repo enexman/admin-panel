@@ -1,4 +1,4 @@
-# cronix-control-panel
+# admin-panel
 
 
 
